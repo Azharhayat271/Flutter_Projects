@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 //create a class to add a background gradient
 class GradientClass extends StatelessWidget {
-  const GradientClass({Key? key}) : super(key: key);
+  const GradientClass({super.key});
 
   @override
   Widget build(BuildContext context) {
