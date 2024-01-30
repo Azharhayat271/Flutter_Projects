@@ -1,7 +1,10 @@
 import "package:flutter/material.dart";
 
+// ignore: must_be_immutable
 class StartScreen extends StatelessWidget {
-  const StartScreen({Key? key}) : super(key: key);
+  StartScreen(this.changeScreen, {super.key});
+
+  void Function() changeScreen;
 
   @override
   Widget build(BuildContext context) {
@@ -13,10 +16,13 @@ class StartScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             const Center(
-              child: Image(
-                image: AssetImage("assets/quiz-logo.png"),
-                height: 200,
-                width: 200,
+              child: Opacity(
+                opacity: 0.7,
+                child: Image(
+                  image: AssetImage("assets/quiz-logo.png"),
+                  height: 200,
+                  width: 200,
+                ),
               ),
             ),
             const SizedBox(
@@ -48,7 +54,9 @@ class StartScreen extends StatelessWidget {
                   ),
                 ),
                 icon: const Icon(Icons.play_arrow),
-                onPressed: () {},
+                onPressed: () {
+                  changeScreen();
+                },
                 label: const Text(
                   "Start Quiz",
                   style: TextStyle(
