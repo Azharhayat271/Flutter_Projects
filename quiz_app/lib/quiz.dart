@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:quiz_app/startscreen.dart';
 import "package:quiz_app/question.dart";
 import 'package:quiz_app/data/data.dart';
+import "package:quiz_app/resultscree.dart";
 
 class Quiz extends StatefulWidget {
   const Quiz({Key? key}) : super(key: key);
@@ -24,10 +25,10 @@ class _QuizState extends State<Quiz> {
   void chosenAnswer(String answer) {
     selectedAnswers.add(answer);
     if (selectedAnswers.length == questions.length) {
-      selectedAnswers = [];
       setState(() {
-        activeScreen = StartScreen(changeScreen);
+        activeScreen = ResultsScreen(selectedAnswers);
       });
+      selectedAnswers = [];
     }
   }
 
